@@ -2,8 +2,44 @@
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-08-28
+
+### Highlights
+- MCP users can choose where local HTML renders are saved without losing the default safe output directory.
+- Install instructions are clearer across Cursor, Antigravity, Codex, and OpenCode, including safer Windows copy commands.
+- Release metadata now has a guardrail so package and plugin versions stay in sync.
+- Slide decks make over-budget content easier to spot during reduced-motion review.
+- Local `file://` previews are quieter and more reliable when using the responsive table of contents.
+
+### Added
+- Added optional `VISUAL_EXPLAINER_OUTPUT_DIR` support for MCP renders. The default remains `~/.agent/diagrams/`, and custom directories still stay inside a local output jail. Requested by [@bertheto](https://github.com/bertheto) in #88.
+- Added rem-based type-scale guidance for non-slide, scrollable pages, with copyable role selectors and readable minimums. Based on PR #95 by [@ZanziPanzi](https://github.com/ZanziPanzi).
+
+### Compatibility
+- Documented native Cursor global and workspace skill paths, plus staged PowerShell install commands with rollback for Antigravity, Codex, and OpenCode. Credit: [@bertheto](https://github.com/bertheto) for #86/#90.
+
 ### Fixed
-- Synchronized Claude Code marketplace and skill metadata versions to `0.9.0` after the mismatch reported by @romkazor in #83.
+- Fixed the stale nested Claude plugin version that made Claude Code report the wrong latest version after `0.10.0`, and added a version check across package, marketplace, plugin, and skill metadata. Reported by [@proxet-p35](https://github.com/proxet-p35) in #93.
+- Added a reduced-motion slide budget check that marks vertical overflow and `autoFit()` fallbacks instead of silently clipping or shrinking over-budget content. Reported by [@bertheto](https://github.com/bertheto) in #92.
+- Guarded the responsive-nav table-of-contents history update for `file://` pages so local scrolling still works without console errors. Based on PR #94 by [@ZanziPanzi](https://github.com/ZanziPanzi).
+
+## [0.10.0] - 2026-08-20
+
+### Highlights
+- Visual explanations now choose a calmer or more expressive treatment based on the request instead of defaulting to the same look every time.
+- Repo-aware pages now prefer the project's own design language before falling back to built-in visual directions.
+- Diagrams now get stronger guidance on what to show, not just how to render Mermaid.
+- The skill now includes a clearer accessibility and dual-theme baseline for generated pages.
+
+### Added
+- Added design-judgment guidance for matching the visual treatment to the request, planning a specific design before writing HTML, and avoiding generic generated-page patterns.
+- Added project design-system precedence so repo-anchored pages can follow existing theme tokens, component styles, and visual vocabulary.
+- Added content-anchored aesthetic directions for CLI, infrastructure, metrics, architecture, recap, and prose-heavy pages.
+- Added diagram rhetoric guidance that asks diagrams to show the mechanism, label arrows, compare differences directly, and make one clear claim per figure.
+- Added craft guidance for dual color schemes, type setting, neutrals, spacing, microcopy, dashboard readability, keyboard focus states, and diagram captions.
+
+### Fixed
+- Synchronized Claude Code marketplace and skill metadata versions after the mismatch reported by @romkazor in #83.
 
 ## [0.9.0] - 2026-08-13
 
